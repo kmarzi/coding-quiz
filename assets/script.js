@@ -4,6 +4,7 @@ var submitButton = document.getElementById('submit');
 var highscore = document.getElementById("highscore");
 var timer =  document.getElementById("timer");
 
+
 function buildQuiz() { }
 
 function showResults() { }
@@ -15,53 +16,56 @@ submitButton.addEventListener('click', showResults);
 var myQuestions = [
     {
         question: "When did dinosaurs go extinct?",
-        answers: {
-            a: "15000 years ago",
-            b: "65 million years ago",
-            c: "1 billion years ago"
-        },
-        correctAnswer: "b"
+        answer: "65 million years ago",
+        answerlist: [ "15000 years ago", "65 million years ago", "1 billion years ago"],
+        correctAnswer: 1    
     },
     {
         question: "Which one of these dinosaurs was most like a rhinoceros??",
-        answers: {
-            a: "Saltopus",
-            b: "Stegosaurus",
-            c: "Triceratops"
+        answer: "Triceratops",
+        answerlist: ["Saltopus","Stegosaurus","Triceratops"],
+        correctAnswer: 2     
         },
-        correctAnswer: "c"
-    },
     {
         question: "Who first coined the term dinosauria?",
-        answers: {
-            a: "Joseph Leidy",
-            b: "Charles Darwin",
-            c: "Sir Richard Owen",
+        answer: "Sir Richard Owen",
+        answerlist: ["Joseph Leidy", "Charles Darwin","Sir Richard Owen"],
+        correctAnswer: 2
         },
-        correctAnswer: "c"
-    }
     {
         question: "During what period did Tyrannosaurus rex live?",
-        answers: {
-            a: "Cretaceous",
-            b: "Triassic",
-            c: "Jurassic",
+        answer: "Cretaceous",
+        answerlist: ["Cretaceous","Triassic","Jurassic"],
+        correctAnswer: 0
         },
-        correctAnswer: "a"
         {
         question: "What was the largest dinosaur?",
-        answers: {
-            a: "Sauropods",
-            b: "Tyrannosaurs",
-            c: "Troodons",
-
+        answer: "Sauropods",
+        answerlist: ["Sauropods","Tyrannosaurs","Troodons"],
+        correctAnswer: 0
         },
-        correctAnswer: "a"
   ];
 
+  
  function buildQuiz() {
     var output = [];
 
     myQuestions.forEach((cureentQuestion, questionNumber) = > {
     });
 }
+var count = 0;
+
+var decrementEl = document.querySelector("#decrement");
+var countEl = document.querySelector("#count");
+
+function setCounterText() {
+  countEl.textContent = count;
+}
+
+decrementEl.addEventListener("click", function() {
+  setTime();
+  if(count > 0) {
+    count--;
+    setCounterText();
+  }
+});
