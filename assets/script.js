@@ -1,6 +1,8 @@
 var quizContainer = document.getElementById('quiz');
 var resultsContainer = document.getElementById('results');
 var submitButton = document.getElementById('submit');
+var highscore = document.getElementById("highscore");
+var timer =  document.getElementById("timer");
 
 function buildQuiz() { }
 
@@ -10,12 +12,15 @@ buildQuiz();
 
 submitButton.addEventListener('click', showResults);
 
-var questions = [
+var myQuestions = [
     {
         question: "When did dinosaurs go extinct?",
-        answer:"65 million years ago,
-        answerList: ["15000 years ago","65 million years ago", "1 billion years ago"]
-        correctAnswer: 1
+        answers: {
+            a: "15000 years ago",
+            b: "65 million years ago",
+            c: "1 billion years ago"
+        },
+        correctAnswer: "b"
     },
     {
         question: "Which one of these dinosaurs was most like a rhinoceros??",
@@ -32,7 +37,6 @@ var questions = [
             a: "Joseph Leidy",
             b: "Charles Darwin",
             c: "Sir Richard Owen",
-
         },
         correctAnswer: "c"
     }
@@ -42,7 +46,6 @@ var questions = [
             a: "Cretaceous",
             b: "Triassic",
             c: "Jurassic",
-
         },
         correctAnswer: "a"
         {
@@ -56,7 +59,7 @@ var questions = [
         correctAnswer: "a"
   ];
 
-function buildQuiz() {
+ function buildQuiz() {
     var output = [];
 
     myQuestions.forEach((cureentQuestion, questionNumber) = > {
