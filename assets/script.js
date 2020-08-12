@@ -1,11 +1,15 @@
 var quizContainer = document.getElementById('quiz');
 var resultsContainer = document.getElementById('results');
-var submitButton = document.getElementById('submit');
+var submitButton = document.getElementById('submitEl');
 var highscore = document.getElementById("highscore");
 var timerEl = document.getElementById("timer");
 var timeEl = document.querySelector(".timerEl");
 var mainEl = document.getElementById("main");
 var answerEl = document.getElementById("answer1")
+var startEl = document.getElementById("startQuiz")
+var formEL = document.getElementById("formId")
+var inputEl = document.getElementById("inputEl")
+
 
 var myQuestions = [
     {
@@ -41,9 +45,9 @@ var myQuestions = [
 ];
 var decrementEl = document.querySelector("#decrement");
 var secondsLeft = 75;
-console.log("JS FILE")
-// alert("HTML")
 var currentQuestion = 0;
+var timerInterval;
+
 function buildQuiz() {
     document.getElementById("quiz").textContent = myQuestions[currentQuestion].question
     answerEl.innerHTML = ""
@@ -54,29 +58,7 @@ function buildQuiz() {
         button.classList.add("btn", "answer", "bg-secondary", "text-white")
         answerEl.appendChild(button)
     }
-    // function showResults() {
-    //     currentQuestion++
-    //     buildQuiz()
-    // }
-
-    // buildQuiz();
-
-    // submitButton.addEventListener('click', showResults);
-
-    // var count = 0;
-
  
-    // var countEl = document.querySelector("#count");
-
-    // function setCounterText() {
-    //     countEl.textContent = count;
-    // }
-
-    
-    // function sendMessage() {
-    //     timeEl.textContent = " You are out of time ";
-    //     mainEl.appendChild(imgEl);
-    // }
 };
 
 function setTime() {
@@ -85,9 +67,8 @@ function setTime() {
         secondsLeft--;
         timeEl.textContent = secondsLeft + " Seconds";
 
-        if (secondsLeft === 0) {
-            clearInterval(timerInterval);
-            sendMessage("You are out of time");
+        if (secondsLeft <= 0) {
+            endQuiz()
         }
 
     }, 1000);
@@ -100,30 +81,38 @@ function checkAnswer(){
     }
     currentQuestion++
     if(currentQuestion === myQuestions.length){
-        clearInterval(timerInterval);
-        console.log("end game")
+        endQuiz()
     }else{
 
         buildQuiz()
     }
 }
-// function displayScore(){
-//     var score = $('<p>',(id: myQuestion'});
 
-//     var numCorrect = 0;
-//     for(var i =0; i < Selections.length; i ++) {
-//         if(Selections[i] === questions[i].correctAnswer){
-//             numCorrect++;
-//         }
-//     }
-//     score.append("You got " + numCorrect = ' questions out of ' + questions.length + ' Right!')
-//     return score;
-// }
+function endQuiz(){
+    clearInterval(timerInterval)
+    document.querySelector(".quiz-container").setAttribute("class", "d-none")
+
+    formEL.setAttribute("class", "d-block")
+
+}
+function save(){
+    event.preventDefault()
+    console.log("save")
+    var localStorageArr = JSON.parse(localStorage.getItem("highscores"))||[]
+    var newEntry = {
+        initials: inputEl.value, 
+        secondsLeft: secondsLeft
+    }
+    localStorageArr.push(newEntry)
+    localStorage.setItem("highscores", JSON.stringify(localStorageArr))
+    location.href="highscores.html"
+}
+submitButton.addEventListener("click", save)
 
 answerEl.addEventListener("click",checkAnswer)
 decrementEl.addEventListener("click", function () {
     setTime();
-    document.getElementById("startQuiz").setAttribute("class","d-none")
+    startEl.setAttribute("class","d-none");
     buildQuiz()
     // if (count > 0) {
     //     count--;

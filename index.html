@@ -10,55 +10,55 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
     integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/style.css">
-  <script src ="highscores.html"></script>
-  
 
   <title>Dinosaur Quiz</title>
 </head>
 
 <body>
   <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="highscores.html">View Highscores</a>
-    <span class="navbar-brandnmb-0 h1">Time: <span class="timerEl"></span></span>
+    <a class="navbar-brand" href="./highscores.html">View Highscores</a>
+    <span class="navbar-brand  nmb-0 h1 text-primary">Time: <span class="timerEl text-success"></span></span>
   </nav>
-  <!-- As a heading -->
-  <!-- <nav class="navbar navbar-dark bg-dark">
-    <span class="navbar-brand mb-0 h1">View Highscores</span>
-    <span class="navbar-brand mb-0 h1">Time: <span class="timerEl"></span></span>
-  </nav> -->
-
-  </div>
-  <div class="row">
-    <div class="col text-center mt-50px">
-
-      <div id="startQuiz">
-        <div class="container">
-          <button id="decrement">Start Quiz</button>
-
-         <div>
-           <ol id="highscores"></ol>
-         </div> 
+  <div class="container">
+    <div class="row">
+      <div class="col text-center mt-50px">
+        <div id="startQuiz">
+          <div class="container">
+            <button id="decrement">Start Quiz</button>
+            <div>
+              <ol id="highscores"></ol>
+            </div>
+          </div>
         </div>
+        <div class="quiz-container">
+          <div id="quiz"></div>
+          <div id="answer1"></div>
+        </div>
+        <form class="d-none" id="formId">
+          <div class="form-group">
+            <label for="inputEl">Enter Initials</label>
+            <input type="text" class="form-control" id="inputEl" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <button type="submit" class="btn btn-primary" id="submitEl">Submit</button>
+        </form>
+
+        <div id="results"></div>
       </div>
-      <div class="quiz-container">
-        <div id="quiz"></div>
-        <div id="answer1"></div>
-      </div>
-      <div id="results"></div>
+    </div>
+  </div>
 
 
-
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
-        integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J"
-        crossorigin="anonymous"></script>
-      <script src="./assets/script.js"></script>
-
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
+    integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J"
+    crossorigin="anonymous"></script>
+  <script src="./assets/script.js"></script>
 </body>
 
 </html>
