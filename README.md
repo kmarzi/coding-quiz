@@ -1,3 +1,9 @@
 # coding-quiz
-Created a dinosaur quiz, when users answer correctly the timer deducts 15 seconds, if answered corrected the timer adds 1 second.
-Also, added a highscores page.
+
+![Dino quiz](./assets/ss2.png)
+
+Created a dinosaur quiz. 
+When users answers correctly the timer deducts 15 seconds, 
+if answered correctly the timer adds 1 second.
+The page also allows user to enter their initials displaying their score 
+and can be redirected to the highscores page.
